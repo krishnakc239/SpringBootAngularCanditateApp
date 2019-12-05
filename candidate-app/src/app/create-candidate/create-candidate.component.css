@@ -1,0 +1,30 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.inputfildcard{
+  width: 50%;
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+}
+
+.searchfildcard{
+  width: 50%;
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+}
+
+.table-card{
+  width: 50%;
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+}

@@ -1,0 +1,75 @@
+<br/><br/>
+<mat-card class="inputfildcard">
+  <mat-card-title>
+    Add Candidate
+  </mat-card-title>
+  <mat-card-actions >
+
+    <div class="example-container">
+
+      <mat-form-field>
+        <input matInput placeholder="Candidate Name" [formControl] = "nameControl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Project Name" [formControl] = "projectControl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Year (YYYY)" width="300px" [formControl] = "yearControl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Skills (comma separated)" width="300px" [formControl] = "skillsControl">
+      </mat-form-field>
+
+      <button mat-raised-button (click)="insertCandidate()">Add Candidate</button>
+    </div>
+
+  </mat-card-actions>
+
+</mat-card>
+
+<br/><br/>
+<mat-card class="searchfildcard">
+  <mat-card-title>
+    Search Candidate By Skill
+  </mat-card-title>
+
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Skills (comma separated)" width="300px" [formControl] = "skillSets">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="searchCandidate()"><mat-icon>search</mat-icon>Search Candidate</button>
+  </div>
+</mat-card>
+
+<mat-card *ngIf = "candidateList" class="table-card">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <td mat-cell *matCellDef="let data"> {{data.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="project">
+      <th mat-header-cell *matHeaderCellDef> Project</th>
+      <td mat-cell *matCellDef="let data"> {{data.project}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef> Year</th>
+      <td mat-cell *matCellDef="let data"> {{data.year}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="skills">
+      <th mat-header-cell *matHeaderCellDef> Skills</th>
+      <td mat-cell *matCellDef="let data"> {{data.skills}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
+
+
